@@ -9,3 +9,12 @@ class Goal(models.Model):
     def __str__(self) -> str:
         """Returns a string representation of the model."""
         return self.text
+    
+class Reflection(models.Model):
+    """Daily goal reflection comment."""
+    goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
+    reflection = models.TextField()
+    data_added = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.reflection[:50]}..."
