@@ -1,0 +1,12 @@
+{% extends 'developian/base.html' %} 
+
+{% block content %}
+  <h1>Goals</h1>
+  <ul>
+    {% for goal in goals %}
+      <li>{{ goal.text }}</li>
+    {% empty %}
+      <li>No goals have been added yet!</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

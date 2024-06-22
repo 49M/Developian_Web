@@ -14,7 +14,7 @@ class Reflection(models.Model):
     """Daily goal reflection comment."""
     goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
     reflection = models.TextField()
-    data_added = models.DateTimeField(auto_now=True)
+    date_added = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.reflection[:50]}..."
