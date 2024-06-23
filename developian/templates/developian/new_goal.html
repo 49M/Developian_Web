@@ -1,0 +1,11 @@
+{% extends "developian/base.html" %}
+
+{% block content %}
+  <h3>Add a New Goal:</h3>
+
+  <form action="{% url 'developian:new_goal' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button name="submit">Add Goal</button>
+  </form>
+{% endblock content %}
