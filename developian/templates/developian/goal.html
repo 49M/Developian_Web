@@ -15,6 +15,10 @@
         <ul>
           <li>
             <p>{{ reflection.reflection|linebreaks }}</p>
+            <p>
+              <a href="{% url 'developian:edit_reflection' reflection.id %}">
+                Edit Reflection</a>
+            </p>
           </li>
         </ul>
       </li>

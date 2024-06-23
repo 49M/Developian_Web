@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Goal
+from .models import Goal, Reflection
 from .forms import GoalForm, ReflectionForm
 
 # Create your views here.
@@ -67,3 +67,24 @@ def new_reflection(request, goal_id):
     # Display blank or invalid form
     context = {'goal': goal, 'form': form}
     return render(request, 'developian/new_reflection.html', context)
+
+
+def edit_reflection(request, reflection_id):
+    """
+    Edit a previously made reflection.
+    """
+    reflection = Reflection.objects.get(id=reflection_id)
+    goal = reflection.goal
+
+    if request.method != 'POST':
+        # Initial request; pre-fill form with the current entry.
+        form = ReflectionForm(instance=reflection)
+    else:
+        # POST data submitted; process entry
+        form = ReflectionForm(instance=reflection, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('developian:goal', goal_id=goal.id)
+    
+    context = {'reflection': reflection, 'goal': goal, 'form': form}
+    return render(request, "developian/edit_reflection.html", context)

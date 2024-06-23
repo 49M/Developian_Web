@@ -17,4 +17,7 @@ urlpatterns = [
     # Page for adding reflections under goals
     path('new_reflection/<int:goal_id>/', views.new_reflection, 
          name='new_reflection'),
+    # Page for editing reflections
+    path('edit_reflection/<int:reflection_id>/', views.edit_reflection, 
+         name='edit_reflection'),
 ]
