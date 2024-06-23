@@ -1,0 +1,13 @@
+{% extends "developian/base.html" %}
+
+{% block content %}
+  <p><a href="{% url 'developian:goal' goal.id %}">{{ goal }}</a></p>
+
+  <p>Add a Reflection:</p>
+  <form action="{% url 'developian:new_reflection' goal.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button name="submit">Add Reflection</button>
+  </form>
+
+{% endblock content %}

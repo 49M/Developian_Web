@@ -4,6 +4,10 @@
   <h2>Goal: {{ goal.text }}</h2>
 
   <h4>Entries</h4>
+
+  <p>
+    <a href="{% url 'developian:new_reflection' goal.id %}">Add Reflection</a>
+  </p>
   <ul>
     {% for reflection in reflections %}
       <li>

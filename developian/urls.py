@@ -14,4 +14,7 @@ urlpatterns = [
     path('goals/<int:goal_id>/', views.goal, name='goal'),
     # Page for adding new goals
     path('new_goal/', views.new_goal, name='new_goal'),
+    # Page for adding reflections under goals
+    path('new_reflection/<int:goal_id>/', views.new_reflection, 
+         name='new_reflection'),
 ]
