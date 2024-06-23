@@ -1,0 +1,21 @@
+{% extends 'developian/base.html' %}
+
+{% block content %}
+  <h2>Goal: {{ goal.text }}</h2>
+
+  <h4>Entries</h4>
+  <ul>
+    {% for reflection in reflections %}
+      <li>
+        <p>{{ reflection.date_added|date:'M d, Y H:i' }}</p>
+        <ul>
+          <li>
+            <p>{{ reflection.reflection|linebreaks }}</p>
+          </li>
+        </ul>
+      </li>
+    {% empty %}
+      <li>No reflections have been created yet!</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

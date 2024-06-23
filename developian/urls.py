@@ -10,6 +10,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Goal Page
     path('goals/', views.goals, name='goals'),
-    # # Individual Goal Page
-    # path('goals/<int:goal_id>/', views.goal, name='goal')
+    # Individual Goal Page
+    path('goals/<int:goal_id>/', views.goal, name='goal'),
 ]

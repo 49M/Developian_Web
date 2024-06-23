@@ -14,3 +14,12 @@ def goals(request):
     goals = Goal.objects.order_by('date_added')
     context = {'goals': goals}
     return render(request, 'developian/goals.html', context)
+
+def goal(request, goal_id):
+    """
+    Show a goal with all its associated reflections.
+    """
+    goal = Goal.objects.get(id=goal_id)
+    reflections = goal.reflection_set.order_by('-date_added')
+    context = {'goal': goal, 'reflections': reflections}
+    return render(request, 'developian/goal.html', context)
