@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My Apps.
     'developian',
+    'accounts',
 
     # Default django apps.
     'django.contrib.admin',
@@ -125,3 +126,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# My Settings
+LOGIN_REDIRECT_URL = 'developian:index'

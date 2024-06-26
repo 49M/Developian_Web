@@ -17,7 +17,17 @@
     <a href="{% url 'developian:goals' %}"
     title="Goals"
     id="goals"
+    style="padding-right: 20px;"
     >Goals</a>
+
+    {% if user.is_authenticated %}
+      Hello, {{ user.username.title }}
+    {% else %}
+      <a href="{% url 'accounts:login' %}"
+      title="Registration"
+      id="registration"
+      >Log In</a>
+    {% endif %}
   </h4>
   {% block content %}{% endblock content %}
 </body>
