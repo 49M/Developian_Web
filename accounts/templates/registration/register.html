@@ -1,6 +1,7 @@
 {% extends 'developian/base.html' %}
 
 {% block content %}
+  <h3>Register</h3>
   <form action="{% url 'accounts:register' %}" method="post">
     {% csrf_token %}
     {{ form.as_div }}

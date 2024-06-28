@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 
 from .models import Goal, Reflection
 from .forms import GoalForm, ReflectionForm
+from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 # Create your views here.
 def index(request):
@@ -9,25 +11,31 @@ def index(request):
     return render(request, 'developian/index.html')
 
 
+@login_required
 def goals(request):
     """
     Page displaying user goals.
     """
-    goals = Goal.objects.order_by('date_added')
+    goals = Goal.objects.filter(owner=request.user).order_by('date_added')
     context = {'goals': goals}
     return render(request, 'developian/goals.html', context)
 
 
+@login_required
 def goal(request, goal_id):
     """
     Show a goal with all its associated reflections.
     """
     goal = Goal.objects.get(id=goal_id)
+    # Make sure topic belongs to the logged in user
+    if goal.owner != request.user:
+        raise Http404
     reflections = goal.reflection_set.order_by('-date_added')
     context = {'goal': goal, 'reflections': reflections}
     return render(request, 'developian/goal.html', context)
 
 
+@login_required
 def new_goal(request):
     """
     Add a new goal for the user.
@@ -39,13 +47,16 @@ def new_goal(request):
         # POST data submitted; process data.
         form = GoalForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            new_goal = form.save(commit=False)
+            new_goal.owner = request.user
+            new_goal.save()
             return redirect('developian:goals')
     # Display a blank or invalid form
     context = {'form': form}
     return render(request, 'developian/new_goal.html', context)
 
 
+@login_required
 def new_reflection(request, goal_id):
     """
     Add a new reflection for a particular goal.
@@ -69,12 +80,15 @@ def new_reflection(request, goal_id):
     return render(request, 'developian/new_reflection.html', context)
 
 
+@login_required
 def edit_reflection(request, reflection_id):
     """
     Edit a previously made reflection.
     """
     reflection = Reflection.objects.get(id=reflection_id)
     goal = reflection.goal
+    if goal.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         # Initial request; pre-fill form with the current entry.
