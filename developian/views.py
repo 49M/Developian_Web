@@ -28,8 +28,9 @@ def goal(request, goal_id):
     """
     goal = Goal.objects.get(id=goal_id)
     # Make sure topic belongs to the logged in user
-    if goal.owner != request.user:
-        raise Http404
+    # if goal.owner != request.user:
+    #     raise Http404
+    check_goal_owner(request, goal)
     reflections = goal.reflection_set.order_by('-date_added')
     context = {'goal': goal, 'reflections': reflections}
     return render(request, 'developian/goal.html', context)
@@ -62,6 +63,7 @@ def new_reflection(request, goal_id):
     Add a new reflection for a particular goal.
     """
     goal = Goal.objects.get(id=goal_id)
+    check_goal_owner(request, goal)
 
     if request.method != 'POST':
         # No data submitted; create a blank form
@@ -87,8 +89,9 @@ def edit_reflection(request, reflection_id):
     """
     reflection = Reflection.objects.get(id=reflection_id)
     goal = reflection.goal
-    if goal.owner != request.user:
-        raise Http404
+    # if goal.owner != request.user:
+    #     raise Http404
+    check_goal_owner(request, goal)
 
     if request.method != 'POST':
         # Initial request; pre-fill form with the current entry.
@@ -102,3 +105,11 @@ def edit_reflection(request, reflection_id):
     
     context = {'reflection': reflection, 'goal': goal, 'form': form}
     return render(request, "developian/edit_reflection.html", context)
+
+
+def check_goal_owner(request, goal):
+    """
+    Checks if the logged in user matches the user assossiated with the goal.
+    """
+    if goal.owner != request.user:
+        raise Http404
