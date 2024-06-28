@@ -129,3 +129,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My Settings
 LOGIN_REDIRECT_URL = 'developian:index'
+LOGOUT_REDIRECT_URL = 'developian:index'

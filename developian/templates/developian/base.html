@@ -21,7 +21,7 @@
     >Goals</a>
 
     {% if user.is_authenticated %}
-      Hello, {{ user.username.title }}
+      Hello {{ user.username.title }}
     {% else %}
       <a href="{% url 'accounts:login' %}"
       title="Registration"
@@ -30,5 +30,13 @@
     {% endif %}
   </h4>
   {% block content %}{% endblock content %}
+
+  {% if user.is_authenticated %}
+    <hr />
+    <form action="{% url 'accounts:logout' %}" method="post">
+      {% csrf_token %}
+      <button name="submit">Log Out</button>
+    </form>
+  {% endif %}
 </body>
 </html>
