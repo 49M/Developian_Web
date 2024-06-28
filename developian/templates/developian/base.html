@@ -24,9 +24,14 @@
       Hello {{ user.username.title }}
     {% else %}
       <a href="{% url 'accounts:login' %}"
-      title="Registration"
-      id="registration"
+      title="Login"
+      id="login"
+      style="padding-right: 20px;"
       >Log In</a>
+      <a href="{% url 'accounts:register' %}"
+      title="registration"
+      id="registration"
+      >Register</a>
     {% endif %}
   </h4>
   {% block content %}{% endblock content %}
