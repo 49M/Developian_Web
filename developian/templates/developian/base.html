@@ -12,7 +12,7 @@
     {% bootstrap_javascript %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'developian:index' %}">
           Developian
@@ -31,8 +31,38 @@
                 Goals
               </a>
             </li>
-          </ul> 
-        </div> 
+          </ul> <!--End of links on left side of Navbar-->
+
+          <!--Account Related links-->
+          <ul class="navbar-nav ms-auto mb-2 mb-md-o">
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <span class="navbar-text me-2">HELLO, {{ user.username.upper }}</span>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:register' %}">
+                  Register
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">
+                  Log in
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+
+          {% if user.is_authenticated %}
+            <form action="{% url 'accounts:logout' %}" method="post">
+              {% csrf_token %}
+              <button name="submit" class="btn btn-outline-secondary btn-sm">
+                Log out
+              </button> 
+            </form>
+          {% endif %}
+
+        </div> <!--Closes collapsable parts of navbar-->
 
       </div> <!-- Closes navbar's container -->
     </nav> <!-- End of navbar -->
