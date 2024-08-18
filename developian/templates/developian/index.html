@@ -5,8 +5,12 @@
     <div class="container-fluid py-4">
       <h1 class="display-3"><b>Developian</b></h1>
       <p class="lead">Sky-rocket your productivity and make achieving goals easy!</p>
-      <a class="btn btn-primary btn-lg mt-3"
-        href="{% url 'accounts:register' %}">Register &raquo;</a>
+      {% if user.is_authenticated %}
+        <h4>Welcome back {{ user.username }}!</h4>
+      {% else %}
+        <a class="btn btn-primary btn-lg mt-3"
+          href="{% url 'accounts:register' %}">Register &raquo;</a>
+      {% endif %}
     </div>
   </div>
 {% endblock page_header %}
