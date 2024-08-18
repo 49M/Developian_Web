@@ -51,7 +51,7 @@
                 </a>
               </li>
             {% endif %}
-          </ul>
+          </ul> <!--End of account related links-->
 
           {% if user.is_authenticated %}
             <form action="{% url 'accounts:logout' %}" method="post">
@@ -67,6 +67,14 @@
       </div> <!-- Closes navbar's container -->
     </nav> <!-- End of navbar -->
 
-  {% block content %}{% endblock content %}
+    <main class="container">
+      <div class="pb-2 mb-2 border-bottom">
+        {% block page_header %}{% endblock page_header %}
+      </div>
+      <div>
+        {% block content %}{% endblock content %}
+      </div>
+    </main>
+
   </body>
 </html>
