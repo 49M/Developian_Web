@@ -1,14 +1,17 @@
 {% extends 'developian/base.html' %} 
 
-{% block content %}
+{% block page_header %}
   <h1>Goals</h1>
-  <ul>
+{% endblock page_header %}
+
+{% block content %}
+  <ul class="list-group border-bottom pb-2 mb-4">
     {% for goal in goals %}
-      <li>
+      <li class="list-group-item border-o">
         <a href="{% url 'developian:goal' goal.id %}">{{ goal.text }}</a>
       </li>
     {% empty %}
-      <li>No goals have been added yet!</li>
+      <li class="list-group-item border-o">No goals have been added yet!</li>
     {% endfor %}
   </ul>
 
