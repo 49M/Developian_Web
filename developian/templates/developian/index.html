@@ -3,8 +3,10 @@
 {% block page_header %}
   <div class="p-3 mb-4 bg-light border rounded-3">
     <div class="container-fluid py-4">
-      <h1 class="display-4"><b>Developian</b></h1>
+      <h1 class="display-3"><b>Developian</b></h1>
       <p>Sky-rocket your productivity and make achieving goals easy!</p>
+      <a class="btn btn-primary btn-lg mt-3"
+        href="{% url 'accounts:register' %}">Register &raquo;</a>
     </div>
   </div>
 {% endblock page_header %}
