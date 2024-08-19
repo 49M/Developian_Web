@@ -1,13 +1,18 @@
 {% extends 'developian/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+<h3><a href="{% url 'developian:goal' goal.id %}" 
+  style="text-decoration: None; color: black;">{{ goal }}</a></h3>
+{% endblock page_header %}
 
 {% block content %}
-  <h3><a href="{% url 'developian:goal' goal.id %}">{{ goal }}</a></h3>
-
-  <p>Edit Reflection:</p>
+  <h5>Edit Reflection:</h5>
   <form action="{% url 'developian:edit_reflection' reflection.id %}" method="post">
     {% csrf_token %}
-    {{ form.as_div }}
-    <button name="submit">Save</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Save" %}
+    <!-- {{ form.as_div }}
+    <button name="submit">Save</button> -->
   </form>
-
 {% endblock content %}
