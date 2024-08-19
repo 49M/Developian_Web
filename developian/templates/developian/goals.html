@@ -1,4 +1,5 @@
 {% extends 'developian/base.html' %} 
+{% load django_bootstrap5 %}
 
 {% block page_header %}
   <h1>Goals</h1>
@@ -8,13 +9,13 @@
   <ul class="list-group border-bottom pb-2 mb-4">
     {% for goal in goals %}
       <li class="list-group-item border-o">
-        <a href="{% url 'developian:goal' goal.id %}">{{ goal.text }}</a>
+        <a href="{% url 'developian:goal' goal.id %}" id="goal">{{ goal.text }}</a>
       </li>
     {% empty %}
       <li class="list-group-item border-o">No goals have been added yet!</li>
     {% endfor %}
   </ul>
 
-  <a href="{% url 'developian:new_goal' %}">Add Goal</a>
-
+  <a class="btn btn-primary btn-sm" 
+  href="{% url 'developian:new_goal' %}">Add Goal</a>
 {% endblock content %}

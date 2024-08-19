@@ -1,0 +1,11 @@
+#title {
+    text-decoration: none;
+    color:aquamarine;
+}
+#goal {
+    text-decoration: none;
+    color: rgb(37, 99, 246);
+}
+#goal:hover {
+    color:lightskyblue;
+}
