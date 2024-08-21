@@ -1,11 +1,14 @@
 {% extends "developian/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block page_header %}
+  <h3>Add a New Goal:</h3>
+{% endblock page_header %}
 
 {% block content %}
-  <h3>Add a New Goal:</h3>
-
   <form action="{% url 'developian:new_goal' %}" method="post">
     {% csrf_token %}
-    {{ form.as_div }}
-    <button name="submit">Add Goal</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Add Goal" %}
   </form>
 {% endblock content %}
