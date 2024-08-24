@@ -113,3 +113,9 @@ def check_goal_owner(request, goal):
     """
     if goal.owner != request.user:
         raise Http404
+
+@login_required
+def delete_goal(request, goal_id):
+    goal = Goal.objects.get(id=goal_id)
+    goal.delete()
+    return redirect('developian:goals')

@@ -8,8 +8,10 @@
 {% block content %}
   <ul class="list-group border-bottom pb-2 mb-4">
     {% for goal in goals %}
-      <li class="list-group-item border-o">
+      <li class="list-group-item border-o d-flex justify-content-between align-items-center">
         <a href="{% url 'developian:goal' goal.id %}" id="goal">{{ goal.text }}</a>
+        <a href="{% url 'developian:delete_goal' goal.id %}" 
+        class="btn btn-outline-danger btn-sm">delete</a>
       </li>
     {% empty %}
       <li class="list-group-item border-o">No goals have been added yet!</li>
