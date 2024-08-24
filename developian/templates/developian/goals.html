@@ -11,7 +11,7 @@
       <li class="list-group-item border-o d-flex justify-content-between align-items-center">
         <a href="{% url 'developian:goal' goal.id %}" id="goal">{{ goal.text }}</a>
         <a href="{% url 'developian:delete_goal' goal.id %}" 
-        class="btn btn-outline-danger btn-sm">delete</a>
+        class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></a>
       </li>
     {% empty %}
       <li class="list-group-item border-o">No goals have been added yet!</li>
