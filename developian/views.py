@@ -119,3 +119,11 @@ def delete_goal(request, goal_id):
     goal = Goal.objects.get(id=goal_id)
     goal.delete()
     return redirect('developian:goals')
+
+@login_required
+def delete_reflection(request, reflection_id):
+    reflection = Reflection.objects.get(id=reflection_id)
+    goal = reflection.goal
+    check_goal_owner(request, goal)
+    reflection.delete()
+    return redirect('developian:goal', goal_id=goal.id)

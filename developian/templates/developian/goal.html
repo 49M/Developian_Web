@@ -14,10 +14,14 @@
       <!-- Card header with timestamp and edit link -->
       <h4 class="card-header d-flex justify-content-between align-items-center">
         {{ reflection.date_added|date:'M d, Y H:i' }}
-        <small><a class="btn btn-primary btn-sm" 
+        <div>
+          <a class="btn btn-primary btn-sm" 
           href="{% url 'developian:edit_reflection' reflection.id %}">
-          edit reflection
-        </a></small>
+          edit
+          </a>
+          <a href="{% url 'developian:delete_reflection' reflection.id %}" 
+          class="btn btn-outline-danger btn-sm"><i class='bi bi-trash'></i></a>
+        </div>
       </h4>
       <!-- Card body with reflection text -->
        <div class="card-body">{{ reflection.reflection|linebreaks }}</div>

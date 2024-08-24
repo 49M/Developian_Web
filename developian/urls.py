@@ -23,4 +23,7 @@ urlpatterns = [
      # Page for deleting goals
      path('delete_goal/<int:goal_id>/', views.delete_goal, 
           name='delete_goal'),
+     # Delete reflections
+     path('delete_reflection/<int:reflection_id>/', views.delete_reflection,
+          name='delete_reflection'),
 ]
