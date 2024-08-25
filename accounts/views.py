@@ -8,6 +8,14 @@ from django.conf import settings
 from django.http import HttpResponse
 import random
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+
+class CustomPasswordChangeView(PasswordChangeView):
+    """
+    Builds on the default Password change view.
+    """
+    success_url = reverse_lazy('accounts:password_change_done')
 
 def register(request):
     """
@@ -45,7 +53,6 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-
 def verify(request, token):
     try:
         user = get_object_or_404(Registration, token=token)
@@ -67,4 +74,4 @@ def account(request):
     username = user.username
     email = user.email
     context = {'username': username, 'email': email}
-    return render(request, 'account.html', context)
+    return render(request, 'registration/account.html', context)
