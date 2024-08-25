@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponse
 import random
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     """
@@ -45,8 +46,6 @@ def register(request):
     return render(request, 'registration/register.html', context)
 
 
-# views.py
-
 def verify(request, token):
     try:
         user = get_object_or_404(Registration, token=token)
@@ -58,3 +57,14 @@ def verify(request, token):
     except Exception as e:
         print(e)
         return HttpResponse('Verification failed. Please try again.')
+    
+@login_required
+def account(request):
+    """
+    Display User account information.
+    """
+    user = request.user
+    username = user.username
+    email = user.email
+    context = {'username': username, 'email': email}
+    return render(request, 'account.html', context)

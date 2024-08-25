@@ -12,4 +12,6 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     # Verify user
     path('verify/<str:token>', views.verify, name='verify'),
+    # Account page
+    path('info', views.account, name='info'),
 ]
