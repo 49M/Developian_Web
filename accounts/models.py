@@ -1,16 +1,3 @@
-# from django.db import models
-# # from django.contrib.auth.forms import UserCreationForm
-
-# # Create your models here.
-# class Registration(models.Model):
-#     username = models.CharField(max_length=25, default=None)
-#     password = models.CharField(max_length=25, default=None)
-#     email = models.EmailField()
-#     is_verified = models.BooleanField(default=False)
-#     token = models.CharField(max_length=100,default=None)
-
-# models.py
-
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
