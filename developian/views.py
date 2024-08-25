@@ -50,6 +50,7 @@ def new_goal(request):
         if form.is_valid():
             new_goal = form.save(commit=False)
             new_goal.owner = request.user
+            print(f"Saving goal with owner: {new_goal.owner}")
             new_goal.save()
             return redirect('developian:goals')
     # Display a blank or invalid form

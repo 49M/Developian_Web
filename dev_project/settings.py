@@ -134,3 +134,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'developian:index'
 LOGOUT_REDIRECT_URL = 'developian:index'
 LOGIN_URL = 'accounts:login'
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'developian.mail@gmail.com'
+EMAIL_HOST_PASSWORD = 'hxum vylc ecwe wczk'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AUTH_USER_MODEL = 'accounts.Registration'
