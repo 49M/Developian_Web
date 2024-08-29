@@ -22,4 +22,7 @@ urlpatterns = [
     path('verify/<str:token>', views.verify, name='verify'),
     # Account page
     path('info', views.account, name='info'),
+    # Send Password Change Email
+    path('password_changed', views.pass_change_confirmation, 
+         name='password_changed'),
 ]

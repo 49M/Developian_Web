@@ -75,3 +75,18 @@ def account(request):
     email = user.email
     context = {'username': username, 'email': email}
     return render(request, 'registration/account.html', context)
+
+def pass_change_confirmation(request):
+    """
+    Sends email.
+    """
+    recipient = request.user
+    send_mail(
+    'Password Changed',
+    f'Hello {recipient.username}, your password has been changed',
+    settings.EMAIL_HOST_USER,
+    [recipient.email],
+    fail_silently=False
+    )
+    return redirect('developian:index')
+    
