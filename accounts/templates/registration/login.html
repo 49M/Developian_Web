@@ -10,5 +10,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
     {% bootstrap_button button_type="submit" content="Log in" %}
+    <a id='forgot_pass' href="{% url 'accounts:password_reset' %}">
+      Forgot Password</a>
   </form>
 {% endblock content %}
