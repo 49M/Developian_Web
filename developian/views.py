@@ -4,11 +4,17 @@ from .models import Goal, Reflection
 from .forms import GoalForm, ReflectionForm
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+import random
 
 # Create your views here.
 def index(request):
     """The home page for Developian."""
-    return render(request, 'developian/index.html')
+    quotes_file_path = 'developian/static/developian/quotes.txt'
+    with open(quotes_file_path, 'r') as file:
+        quotes = file.readlines()
+        quote = random.choice(quotes).strip()
+    content = {'quote': quote}
+    return render(request, 'developian/index.html', content)
 
 
 @login_required
