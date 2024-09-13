@@ -169,7 +169,6 @@ if config.is_valid_platform():
                 'NAME': db_settings['path'],
                 'USER': db_settings['username'],
                 'PASSWORD': db_settings['password'],
-                'EMAIL': db_settings['email'],
                 'HOST': db_settings['host'],
                 'PORT': db_settings['port'],
             },
