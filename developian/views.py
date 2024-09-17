@@ -134,3 +134,9 @@ def delete_reflection(request, reflection_id):
     check_goal_owner(request, goal)
     reflection.delete()
     return redirect('developian:goal', goal_id=goal.id)
+
+def about(request):
+    """
+    The About Developian page.
+    """
+    return render(request, 'developian/about.html')

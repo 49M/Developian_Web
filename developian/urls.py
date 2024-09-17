@@ -26,4 +26,5 @@ urlpatterns = [
      # Delete reflections
      path('delete_reflection/<int:reflection_id>/', views.delete_reflection,
           name='delete_reflection'),
+     path('about/', views.about, name='about'),
 ]
