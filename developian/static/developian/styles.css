@@ -27,3 +27,7 @@ html, body {
     background-position: center;
     background-attachment: scroll;
 }
+#me_pic {
+    float: right;
+    margin-left: 20px;
+}
