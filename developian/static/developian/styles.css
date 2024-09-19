@@ -30,7 +30,7 @@ html, body {
 #me_pic {
     float: right;
     margin-left: 20px;
-    width: 250px;
-    height: 400px;
+    /* width: 250px; */
+    height: 340px;
     object-fit: cover;
 }
