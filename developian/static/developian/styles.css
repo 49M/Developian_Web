@@ -30,4 +30,6 @@ html, body {
 #me_pic {
     float: right;
     margin-left: 20px;
+    height: 250px;
+    width: 250px;
 }
