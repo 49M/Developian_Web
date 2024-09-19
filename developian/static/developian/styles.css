@@ -31,5 +31,6 @@ html, body {
     float: right;
     margin-left: 20px;
     width: 250px;
-    height: 350px;
+    height: 400px;
+    object-fit: cover;
 }
