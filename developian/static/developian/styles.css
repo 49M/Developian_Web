@@ -22,7 +22,7 @@ html, body {
 }
 .bg {
     background-image: url("/static/developian/marble_wallpaper.jpeg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
