@@ -1,4 +1,4 @@
-#!/Users/michal/Desktop/Dev/GitHub/Developian_Web/dev_env/bin/python3.11
+#!/Users/michal/LocalDev/GitHub/Developian_Web/dev_env/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
