@@ -140,3 +140,10 @@ def about(request):
     The About Developian page.
     """
     return render(request, 'developian/about.html')
+
+@login_required
+def schedule(request):
+    """
+    Scheduling page.
+    """
+    return render(request, 'developian/schedule.html')
