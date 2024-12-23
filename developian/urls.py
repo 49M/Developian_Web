@@ -27,4 +27,6 @@ urlpatterns = [
      path('delete_reflection/<int:reflection_id>/', views.delete_reflection,
           name='delete_reflection'),
      path('about/', views.about, name='about'),
+     # Scheduling Page
+     path('schedule/', views.schedule, name='schedule'),
 ]
