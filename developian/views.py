@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect
 
 from .models import Goal, Reflection
@@ -146,4 +147,7 @@ def schedule(request):
     """
     Scheduling page.
     """
-    return render(request, 'developian/schedule.html')
+    date = datetime.date.today()
+    times = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
+    context = {'date': date, 'times': times}
+    return render(request, 'developian/schedule.html', context)
