@@ -34,3 +34,28 @@ html, body {
     /* width: 250px; */
     /* height: 340px; */
 }
+#date {
+    text-align: center;
+}
+.schedule-container {
+    background-color: white; 
+    border: 1px solid grey; 
+    border-radius: 2px; 
+    width: 30%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.schedule-row {
+    display: flex;
+    box-sizing: border-box;
+}
+.schedule-time, .schedule-event {
+    border-right: 1px solid grey; 
+    border-bottom: 1px solid grey; 
+    text-align: center; 
+    border-radius: 2px;
+    border-width: fit-content;
+}
+#times {
+    background-color: rgb(222, 222, 222); 
+}

@@ -8,12 +8,12 @@
 
 {% block content %}
   <h3>Daily Schedule</h3>
-  <h4 style="text-align: center;">{{ date }}</h4>
-  <div class="container" style="background-color: white; border: 1px solid grey; border-radius: 2px; max-width: 30%;"> 
+  <h4 id="date">{{ date }}</h4>
+  <div class="schedule-container"> 
       {% for time in times %}
-        <div class="row">
-          <div class="col text-center" style="background-color: rgb(222, 222, 222); border-right: 1px solid grey; border-bottom: 1px solid grey; text-align: center; border-radius: 2px;">{{ time }}</div>
-          <div class="col text-center" style="border-right: 1px solid grey; border-bottom: 1px solid grey; text-align: center; border-radius: 2px;">--</div>
+        <div class="schedule-row">
+          <div class="col schedule-time" id="times">{{ time }}</div>
+          <div class="col schedule-event" id="time-blocks">--</div>
         </div>
       {% endfor %}  
   </div>
