@@ -41,21 +41,63 @@ html, body {
     background-color: white; 
     border: 1px solid grey; 
     border-radius: 2px; 
-    width: 30%;
+    width: 20%;
     margin: 0 auto;
     box-sizing: border-box;
+    box-shadow: 3px 3px 5px rgb(159, 159, 159);
 }
 .schedule-row {
     display: flex;
     box-sizing: border-box;
+    height: 20px; 
 }
-.schedule-time, .schedule-event {
-    border-right: 1px solid grey; 
-    border-bottom: 1px solid grey; 
-    text-align: center; 
-    border-radius: 2px;
-    border-width: fit-content;
+.time-block-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 60%;
 }
-#times {
+.schedule-time {
+    width: 40%; /* Set width to 40% */
+    background-color: rgb(222, 222, 222);
+    text-align: center;
+    font-size: 12px;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    box-sizing: border-box; 
     background-color: rgb(222, 222, 222); 
+}
+.schedule-event {
+    flex: 1;
+    text-align: center;
+    border-bottom: 1px solid grey;
+    font-size: 6px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    height: 10px; 
+}
+.column-description {
+    display: flex;
+    box-sizing: border-box;
+    height: 20px; 
+}
+#time-col {
+    width: 40%;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+#event-col {
+    width: 60%;
+    border-right: none;
+    border-bottom-left-radius: 0px;
+}
+.descriptor {
+    background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
+    text-align: center;
+    font-size: 12px;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-radius: 2px;
+    box-sizing: border-box;
 }
