@@ -67,6 +67,7 @@ html, body {
     border-bottom: 1px solid grey;
     box-sizing: border-box; 
     background-color: rgb(222, 222, 222); 
+    user-select: none;
 }
 .schedule-event {
     flex: 1;
@@ -75,6 +76,10 @@ html, body {
     font-size: 6px;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     height: 10px; 
+    user-select: none;
+}
+.schedule-event.highlighted {
+    background-color: rgb(127, 255, 180);
 }
 .column-description {
     display: flex;
@@ -100,4 +105,5 @@ html, body {
     border-bottom: 1px solid grey;
     border-radius: 2px;
     box-sizing: border-box;
+    user-select: none;
 }
