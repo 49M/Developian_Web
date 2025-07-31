@@ -1,5 +1,5 @@
 # Developian
-Web Application for the Developian Brand.
+## Goal setting and tracking app.
 Features:
 - Goal Setting 
 - Progress Counters
